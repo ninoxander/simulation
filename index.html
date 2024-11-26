@@ -7,10 +7,84 @@
     <script src="https://kit.fontawesome.com/38a3806765.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="h-screen w-screen dark:bg-slate-800 flex items-center justify-center">
-        <p class="text-6xl text-slate-50 font-bold">
-            <i class="fa-solid fa-clock"></i> Work in progress!
-        </p>
+    <div class="min-h-screen w-screen bg-slate-800 flex flex-col">
+        <!-- Navbar -->
+        <nav class="bg-slate-800 text-white py-4">
+            <div class="container mx-auto flex justify-center">
+                <ul class="flex space-x-6 text-lg">
+                    <li><a href="#" class="hover:text-blue-400">Home</a></li>
+                    <!-- Algorithms with Submenu -->
+                    <li class="relative">
+                        <a href="#" class="hover:text-blue-400" id="algorithms-menu-toggle">Algorithms</a>
+                        <!-- Submenu -->
+                        <ul id="algorithms-submenu" class="absolute left-0 hidden bg-slate-700 text-white p-4 space-y-2 mt-2 rounded-md z-10">
+                            <li><a href="https://github.com/ninoxander/slr-algorithm" target="_blank" class="block hover:text-blue-400">SLR</a></li>
+                            <li><a href="https://github.com/ninoxander/mr-algorithm" target="_blank" class="block hover:text-blue-400">MLR</a></li>
+                            <li><a href="https://github.com/ninoxander/slr-algorithm" target="_blank" class="block hover:text-blue-400">Polynomial</a></li>
+                            <li><a href="https://github.com/ninoxander/genetic-algorithm" target="_blank" class="block hover:text-blue-400">Genetic</a></li>
+                            <li><a href="#" class="block hover:text-blue-400">MAS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-400">Wiki</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="flex-grow flex items-center justify-center flex-col">
+            <p class="text-6xl text-slate-50 font-bold mt-20">
+                <i class="fa-solid fa-calculator"></i> Simulation
+            </p>
+            <div class="algorithms grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10 px-4">
+                <!-- Cuadro 1 (SLR) -->
+                <a href="https://github.com/ninoxander/slr-algorithm" target="_blank">
+                    <div class="relative p-10 bg-slate-700 rounded-lg text-center text-slate-50 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-slate-600">
+                        <p class="text-xl">SLR</p>
+                    </div>
+                </a>
+                <!-- Cuadro 2 (MLR) -->
+                <a href="https://github.com/ninoxander/mr-algorithm" target="_blank">
+                    <div class="relative p-10 bg-slate-700 rounded-lg text-center text-slate-50 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-slate-600">
+                        <p class="text-xl">MLR</p>
+                    </div>
+                </a>
+                <!-- Cuadro 3 (Polynomial) -->
+                <a href="https://github.com/ninoxander/slr-algorithm" target="_blank">
+                    <div class="relative p-10 bg-slate-700 rounded-lg text-center text-slate-50 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-slate-600">
+                        <p class="text-xl">Polynomial</p>
+                    </div>
+                </a>
+                <!-- Cuadro 4 (Genetic) -->
+                <a href="https://github.com/ninoxander/genetic-algorithm" target="_blank">
+                    <div class="relative p-10 bg-slate-700 rounded-lg text-center text-slate-50 transition duration-300 ease-in-out transform hover:scale-105 hover:bg-slate-600">
+                        <p class="text-xl">Genetic</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-auto text-center text-slate-50 py-4">
+            <p class="text-sm">
+                by <a href="https://github.com/ninoxander" target="_blank" class="text-blue-400 hover:underline">Daniela Ivette Nava Miranda</a>
+            </p>
+        </footer>
     </div>
+
+    <script>
+        const menuToggle = document.getElementById('algorithms-menu-toggle');
+        const submenu = document.getElementById('algorithms-submenu');
+
+        menuToggle.addEventListener('click', function(event) {
+            event.preventDefault();
+            submenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!submenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                submenu.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
